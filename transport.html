@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transport Guide | TaiwanMe</title>
+    <link rel="icon" href="image/logo.PNG" type="image/png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* --- Transport 頁面專屬 CSS --- */
+
+        /* 1. Banner 設定 */
+        .transport-banner {
+            width: 100%;
+            /* 維持 1344 / 768 的比例 */
+            aspect-ratio: 1344 / 768; 
+            background-image: url('image/transport/banner.PNG'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-bottom: 40px;
+        }
+
+        /* 2. 頁面標題 */
+        .page-main-title {
+            text-align: center;
+            font-family: 'Lato', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #5d5d5d;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .page-subtitle {
+            text-align: center;
+            color: #888;
+            font-size: 1rem;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        /* 3. 文章列表容器 (Grid Layout) */
+        .transport-container {
+            max-width: 1100px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+
+        .transport-grid {
+            display: grid;
+            /* 電腦版自動調整：每欄最小 320px，放不下就自動換行 */
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        /* 4. 單篇文章卡片 (仿 Japan Travel 風格) */
+        .transport-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none; /* 連結樣式移除底線 */
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #eee;
+        }
+
+        .transport-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .tp-img-wrapper {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .tp-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .transport-card:hover .tp-img-wrapper img {
+            transform: scale(1.05); /* Hover 時圖片微放大 */
+        }
+
+        .tp-content {
+            padding: 25px;
+            flex-grow: 1; /* 確保內容高度對齊 */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tp-tag {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .tp-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 0 0 15px 0;
+            color: #333;
+            font-family: 'Lato', 'Noto Sans TC', sans-serif;
+            line-height: 1.3;
+        }
+
+        .tp-desc {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .read-more-link {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .read-more-link::after {
+            content: '→';
+            transition: margin-left 0.3s;
+        }
+        .transport-card:hover .read-more-link::after {
+            margin-left: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 15px;">
+                <img src="image/logo.PNG" alt="TaiwanMe Logo">
+                <span class="logo-text">THE REAL TASTE OF TAIWAN</span>
+            </a>
+        </div>
+
+        <div class="header-links">
+            <a href="#" class="h-link" id="tippingBtn">BUY US<br>A BOBA</a>
+            <a href="#" class="h-link" id="philosophyBtn">TAIWANME'S<br>PHILOSOPHY</a>
+            <a href="#" class="h-link">BUSINESS<br>INQUIRY</a>
+        </div>
+
+        <div class="nav-icons">
+            <button id="searchBtn">🔍 Search</button>
+        </div>
+    </header>
+
+    <div id="searchModal" class="search-modal">
+        <div class="close-search">&times;</div>
+        <div class="search-content">
+            <h2>Where to explore?</h2>
+            <input type="text" placeholder="Enter keywords (e.g. Taipei, Food)...">
+            <button class="submit-search">Search</button>
+        </div>
+    </div>
+
+    <nav class="mobile-grid-nav">
+        <a href="index.html#mapSection" class="grid-btn scroll-to-map">HIDDEN GEMS</a>
+        <a href="search_by_city.html" class="grid-btn">SEARCH BY CITY</a>
+        <a href="festivals.html" class="grid-btn">SEASONAL FESTIVALS</a>
+        <a href="transport.html" class="grid-btn" style="color: var(--accent-color); font-weight: bold;">TRANSPORT</a>
+        
+        <a href="culture.html" class="grid-btn">CULTURE &<br>DAILY LIFE</a>
+        <a href="dining.html" class="grid-btn">INCLUSIVE DINING</a>
+        <a href="entertainment.html" class="grid-btn">ENTERTAINMENT</a>
+        
+        <a href="#" class="grid-btn menu-btn">MORE +</a>
+    </nav>
+
+    <nav class="desktop-nav">
+        <ul>
+            <li><a href="index.html#mapSection" class="scroll-to-map">HIDDEN GEMS</a></li>
+            <li><a href="search_by_city.html">SEARCH BY CITY</a></li>
+            <li><a href="festivals.html">SEASONAL FESTIVALS</a></li>
+            <li><a href="transport.html" style="color: var(--accent-color);">TRANSPORT</a></li>
+            
+            <li><a href="culture.html">CULTURE & DAILY LIFE</a></li>
+            <li><a href="dining.html">INCLUSIVE DINING</a></li>
+            <li><a href="entertainment.html">ENTERTAINMENT</a></li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropbtn">MORE ▾</a>
+                <div class="dropdown-content">
+                    <a href="#">Page 1</a>
+                    <a href="#">Page 2</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="transport-banner"></div>
+
+    <h1 class="page-main-title">Getting Around Taiwan</h1>
+    <p class="page-subtitle">From international arrivals to local commuting, here is your complete guide to navigating Taiwan's efficient transportation system.</p>
+
+    <section class="transport-container">
+        <div class="transport-grid">
+
+            <a href="#" class="transport-card">
+                <div class="tp-img-wrapper">
+                    <img src="https://placehold.co/600x400/eee/333?text=Taoyuan+Airport" alt="Taoyuan Airport">
+                </div>
+                <div class="tp-content">
+                    <span class="tp-tag">AIRPORT</span>
+                    <h3 class="tp-title">From Taoyuan Airport (TPE) to Cities</h3>
+                    <p class="tp-desc">The main gateway to Taiwan. Learn how to get to Taipei, Taichung, and other major cities via Airport MRT, HSR shuttle, and buses.</p>
+                    <span class="read-more-link">Read More</span>
+                </div>
+            </a>
+
+            <a href="#" class="transport-card">
+                <div class="tp-img-wrapper">
+                    <img src="https://placehold.co/600x400/eee/333?text=Kaohsiung+Airport" alt="Kaohsiung Airport">
+                </div>
+                <div class="tp-content">
+                    <span class="tp-tag">AIRPORT</span>
+                    <h3 class="tp-title">From Kaohsiung Airport (KHH) to Cities</h3>
+                    <p class="tp-desc">Arriving in the South? Discover the quickest ways to connect from KHH to downtown Kaohsiung, Tainan, and Kenting.</p>
+                    <span class="read-more-link">Read More</span>
+                </div>
+            </a>
+
+            <a href="#" class="transport-card">
+                <div class="tp-img-wrapper">
+                    <img src="https://placehold.co/600x400/eee/333?text=Other+Airports" alt="Regional Airports">
+                </div>
+                <div class="tp-content">
+                    <span class="tp-tag">AIRPORT</span>
+                    <h3 class="tp-title">Regional Airports (TSA, RMQ, & Others)</h3>
+                    <p class="tp-desc">Guides for Taipei Songshan (TSA), Taichung (RMQ), and Hualien airports for domestic and regional flights.</p>
+                    <span class="read-more-link">Read More</span>
+                </div>
+            </a>
+
+            <a href="#" class="transport-card">
+                <div class="tp-img-wrapper">
+                    <img src="https://placehold.co/600x400/eee/333?text=IC+Cards" alt="Payment Methods">
+                </div>
+                <div class="tp-content">
+                    <span class="tp-tag">ESSENTIALS</span>
+                    <h3 class="tp-title">Smart Payment: EasyCard & iPASS</h3>
+                    <p class="tp-desc">The "Must-Have" item for Taiwan travel. How to buy, top-up, and use these cards for MRT, buses, and convenience stores.</p>
+                    <span class="read-more-link">Read More</span>
+                </div>
+            </a>
+
+            <a href="#" class="transport-card">
+                <div class="tp-img-wrapper">
+                    <img src="https://placehold.co/600x400/eee/333?text=HSR" alt="Taiwan High Speed Rail">
+                </div>
+                <div class="tp-content">
+                    <span class="tp-tag">INTER-CITY</span>
+                    <h3 class="tp-title">Taiwan High Speed Rail (THSR)</h3>
+                    <p class="tp-desc">The fastest way to travel along the West Coast. Tips on booking early bird tickets, rail passes, and station guides.</p>
+                    <span class="read-more-link">Read More</span>
+                </div>
+            </a>
+
+            <a href="#" class="transport-card">
+                <div class="tp-img-wrapper">
+                    <img src="https://placehold.co/600x400/eee/333?text=TRA+Train" alt="Taiwan Railways">
+                </div>
+                <div class="tp-content">
+                    <span class="tp-tag">ISLAND-WIDE</span>
+                    <h3 class="tp-title">Taiwan Railways (TRA) Guide</h3>
+                    <p class="tp-desc">Perfect for round-island trips and accessing the East Coast (Hualien, Taitung). Understanding train types and booking.</p>
+                    <span class="read-more-link">Read More</span>
+                </div>
+            </a>
+
+            <a href="#" class="transport-card">
+                <div class="tp-img-wrapper">
+                    <img src="https://placehold.co/600x400/eee/333?text=MRT+Map" alt="MRT Systems">
+                </div>
+                <div class="tp-content">
+                    <span class="tp-tag">URBAN</span>
+                    <h3 class="tp-title">Metro Systems (MRT) Guide</h3>
+                    <p class="tp-desc">Navigating the subway systems in Taipei, Taoyuan, Taichung, and Kaohsiung. Maps, pricing, and etiquette.</p>
+                    <span class="read-more-link">Read More</span>
+                </div>
+            </a>
+
+            <a href="#" class="transport-card">
+                <div class="tp-img-wrapper">
+                    <img src="https://placehold.co/600x400/eee/333?text=YouBike" alt="Short Distance Travel">
+                </div>
+                <div class="tp-content">
+                    <span class="tp-tag">LOCAL</span>
+                    <h3 class="tp-title">Getting Around the City</h3>
+                    <p class="tp-desc">Short-distance options: Renting a YouBike, taking city buses, and using Uber or local Taxis.</p>
+                    <span class="read-more-link">Read More</span>
+                </div>
+            </a>
+
+            <a href="#" class="transport-card">
+                <div class="tp-img-wrapper">
+                    <img src="https://placehold.co/600x400/eee/333?text=Ferry" alt="Offshore Islands">
+                </div>
+                <div class="tp-content">
+                    <span class="tp-tag">ADVENTURE</span>
+                    <h3 class="tp-title">Traveling to Offshore Islands</h3>
+                    <p class="tp-desc">Flights and ferries to Penghu, Kinmen, Matsu, Green Island, and Lanyu. Seasonal tips and booking info.</p>
+                    <span class="read-more-link">Read More</span>
+                </div>
+            </a>
+
+            <a href="#" class="transport-card">
+                <div class="tp-img-wrapper">
+                    <img src="https://placehold.co/600x400/eee/333?text=Lockers" alt="Luggage Storage">
+                </div>
+                <div class="tp-content">
+                    <span class="tp-tag">TIPS</span>
+                    <h3 class="tp-title">Luggage Storage & Logistics</h3>
+                    <p class="tp-desc">Where to store your bags at stations, airports, and city lockers so you can travel light and hands-free.</p>
+                    <span class="read-more-link">Read More</span>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <footer id="footer">
+        <h3 class="footer-title">Contact Us</h3>
+        <div class="contact-circles">
+            <a href="#" class="contact-btn line"><img src="image/line_icon.PNG" alt="Line"></a>
+            <a href="#" class="contact-btn fb"><img src="image/fb_icon.PNG" alt="FB"></a>
+            <a href="tel:+886912345678" class="contact-btn phone"><img src="image/tel_icon.PNG" alt="Tel"></a>
+            <a href="mailto:info@example.com" class="contact-btn mail"><img src="image/mail_icon.PNG" alt="Mail"></a>
+        </div>
+        <p class="copyright">© 2025 TaiwanMe. All Rights Reserved.</p>
+    </footer>
+
+    <div id="philosophyModal" class="philosophy-modal">
+        <span class="close-poster">&times;</span>
+        <div class="poster-container">
+            <img src="image/philosophy.PNG" alt="TaiwanMe Philosophy" class="poster-img">
+        </div>
+    </div>
+
+    <div id="tippingModal" class="tipping-modal">
+        <span class="close-tipping">&times;</span>
+        <div class="tipping-content">
+            <h2 class="tipping-title">TIPPING METHODS</h2>
+            
+            <div class="tipping-img-container">
+                <img src="image/buymeaboba.PNG" alt="Buy Us a Boba" class="tipping-img">
+            </div>
+
+            <div class="tipping-details">
+                <div class="tipping-section">
+                    <h3 class="tipping-subtitle">Crypto</h3>
+                    <div class="table-container">
+                        <table class="tipping-table">
+                            <thead>
+                                <tr>
+                                    <th>Coin</th>
+                                    <th>Network</th>
+                                    <th>Address</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="coin-col">BTC</td>
+                                    <td>Bitcoin</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">393SydmjKD8fKYSaiFhZYvxPNi4rgSyzGA</span>
+                                        <button class="copy-btn" data-addr="393SydmjKD8fKYSaiFhZYvxPNi4rgSyzGA">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="coin-col">ETH</td>
+                                    <td>ERC20</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="coin-col">BNB</td>
+                                    <td>BSC (BEP20)</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ERC20</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="coin-col">USDT</td>
+                                    <td>BSC (BEP20)</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ERC20</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="coin-col">USDC</td>
+                                    <td>BSC (BEP20)</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ERC20</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="coin-col">BCH</td>
+                                    <td>Bitcoin Cash</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">qprnfkc6x5k2zc5wrfv0x78zv34dvs7nlswhfmzep0</span>
+                                        <button class="copy-btn" data-addr="qprnfkc6x5k2zc5wrfv0x78zv34dvs7nlswhfmzep0">Copy</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tipping-section">
+                    <h3 class="tipping-subtitle">Others</h3>
+                    <p class="empty-msg">Coming Soon...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="backToTopBtn" class="back-to-top">
+        <img src="image/top.PNG" alt="Back to Top">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

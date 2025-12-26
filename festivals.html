@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festivals | TaiwanMe</title>
+    <link rel="icon" href="image/logo.PNG" type="image/png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* --- 頁面專屬樣式 --- */
+
+        /* 1. Banner 設定 */
+        .festivals-banner {
+            width: 100%;
+            aspect-ratio: 1344 / 768; 
+            
+            background-image: url('image/festivals/banner.PNG'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            
+            margin-bottom: 40px;
+        }
+
+        /* 2. 主標題 */
+        .page-main-title {
+            text-align: center;
+            font-family: 'Lato', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #5d5d5d;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* 3. 季節區塊容器 */
+        .season-section {
+            max-width: 1000px;
+            margin: 0 auto 80px; /* 區塊間距 */
+            padding: 0 20px;
+        }
+
+        /* 季節標題 (帶有裝飾線) */
+        .season-title {
+            font-family: 'Lato', 'Noto Sans TC', sans-serif;
+            font-size: 1.8rem;
+            color: #333;
+            border-left: 5px solid var(--accent-color); /* 左側色條 */
+            padding-left: 15px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+        }
+        .season-title span {
+            font-size: 1rem;
+            color: #888;
+            margin-left: 10px;
+            font-weight: normal;
+        }
+
+        /* 4. 表格樣式 (仿照 pac-group 風格) */
+        .festival-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        
+        .festival-table th, 
+        .festival-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .festival-table th {
+            background-color: #f9f9f9;
+            color: #555;
+            font-weight: 700;
+            width: 25%; /* 日期欄位寬度 */
+        }
+
+        .festival-table td {
+            color: #666;
+        }
+
+        /* 手機版表格調整 */
+        @media (max-width: 600px) {
+            .table-responsive {
+                overflow-x: auto;
+            }
+            .festival-table th, .festival-table td {
+                white-space: nowrap; 
+            }
+        }
+
+        /* 5. 統整圖片 (暫時留白區塊) */
+        .season-summary-img {
+            width: 100%;
+            height: 300px; /* 佔位高度 */
+            background-color: #eaeaea; /* 灰色背景表示圖片位置 */
+            border: 2px dashed #ccc; /* 虛線框 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #999;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 15px;">
+                <img src="image/logo.PNG" alt="TaiwanMe Logo">
+                <span class="logo-text">THE REAL TASTE OF TAIWAN</span>
+            </a>
+        </div>
+
+        <div class="header-links">
+            <a href="#" class="h-link" id="tippingBtn">BUY US<br>A BOBA</a>
+            <a href="#" class="h-link" id="philosophyBtn">TAIWANME'S<br>PHILOSOPHY</a>
+            <a href="#" class="h-link">BUSINESS<br>INQUIRY</a>
+        </div>
+
+        <div class="nav-icons">
+            <button id="searchBtn">🔍 Search</button>
+        </div>
+    </header>
+
+    <div id="searchModal" class="search-modal">
+        <span class="close-search">&times;</span>
+        <div class="search-content">
+            <h2>Where to explore?</h2>
+            <input type="text" placeholder="Enter keywords (e.g. Taipei, Food)...">
+            <button class="submit-search">Search</button>
+        </div>
+    </div>
+
+    <nav class="mobile-grid-nav">
+        <a href="index.html#mapSection" class="grid-btn scroll-to-map">HIDDEN GEMS</a>
+        <a href="search_by_city.html" class="grid-btn">SEARCH BY CITY</a>
+        <a href="festivals.html" class="grid-btn" style="color: var(--accent-color); font-weight: bold;">SEASONAL FESTIVALS</a>
+        <a href="transport.html" class="grid-btn">TRANSPORT</a>
+        
+        <a href="culture.html" class="grid-btn">CULTURE &<br>DAILY LIFE</a>
+        <a href="dining.html" class="grid-btn">INCLUSIVE DINING</a>
+        <a href="entertainment.html" class="grid-btn">ENTERTAINMENT</a>
+        
+        <a href="#" class="grid-btn menu-btn">MORE +</a>
+    </nav>
+
+    <nav class="desktop-nav">
+        <ul>
+            <li><a href="index.html#mapSection" class="scroll-to-map">HIDDEN GEMS</a></li>
+            <li><a href="search_by_city.html">SEARCH BY CITY</a></li>
+            <li><a href="festivals.html" style="color: var(--accent-color);">SEASONAL FESTIVALS</a></li>
+            <li><a href="transport.html">TRANSPORT</a></li>
+            
+            <li><a href="culture.html">CULTURE & DAILY LIFE</a></li>
+            <li><a href="dining.html">INCLUSIVE DINING</a></li>
+            <li><a href="entertainment.html">ENTERTAINMENT</a></li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropbtn">MORE ▾</a>
+                <div class="dropdown-content">
+                    <a href="#">Page 1</a>
+                    <a href="#">Page 2</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="festivals-banner"></div>
+
+    <h1 class="page-main-title">Yearly Event Calendar</h1>
+
+    <section class="season-section" id="spring">
+        <h2 class="season-title">SPRING <span>(Mar. - May.)</span></h2>
+        
+        <div class="table-responsive">
+            <table class="festival-table">
+                <thead>
+                    <tr>
+                        <th>日期 (Date)</th>
+                        <th>活動名稱 (Event Name)</th>
+                        <th>地點 (Location)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>3月中旬</td>
+                        <td>陽明山海芋季 (Calla Lily Festival)</td>
+                        <td>台北 (Taipei)</td>
+                    </tr>
+                    <tr>
+                        <td>4月 - 5月</td>
+                        <td>澎湖國際海上花火節 (Penghu Fireworks Festival)</td>
+                        <td>澎湖 (Penghu)</td>
+                    </tr>
+                    <tr>
+                        <td>4月 - 5月</td>
+                        <td>客家桐花祭 (Hakka Tung Blossom Festival)</td>
+                        <td>苗栗/新竹 (Miaoli/Hsinchu)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="season-summary-img">
+            [ Spring Summary Image Placeholder ]
+        </div>
+    </section>
+
+    <section class="season-section" id="summer">
+        <h2 class="season-title">SUMMER <span>(Jun. - Aug.)</span></h2>
+        
+        <div class="table-responsive">
+            <table class="festival-table">
+                <thead>
+                    <tr>
+                        <th>日期 (Date)</th>
+                        <th>活動名稱 (Event Name)</th>
+                        <th>地點 (Location)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>6月 (農曆5月5日)</td>
+                        <td>端午節龍舟賽 (Dragon Boat Festival)</td>
+                        <td>全台各地 (Nationwide)</td>
+                    </tr>
+                    <tr>
+                        <td>7月 - 8月</td>
+                        <td>臺灣熱氣球嘉年華 (Balloon Festival)</td>
+                        <td>台東 (Taitung)</td>
+                    </tr>
+                    <tr>
+                        <td>8月中旬</td>
+                        <td>中元祭 (Ghost Festival)</td>
+                        <td>基隆 (Keelung)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="season-summary-img">
+            [ Summer Summary Image Placeholder ]
+        </div>
+    </section>
+
+    <section class="season-section" id="autumn">
+        <h2 class="season-title">AUTUMN <span>(Sep. - Nov.)</span></h2>
+        
+        <div class="table-responsive">
+            <table class="festival-table">
+                <thead>
+                    <tr>
+                        <th>日期 (Date)</th>
+                        <th>活動名稱 (Event Name)</th>
+                        <th>地點 (Location)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>9月 (農曆8月15日)</td>
+                        <td>中秋節 (Moon Festival)</td>
+                        <td>全台各地 (Nationwide)</td>
+                    </tr>
+                    <tr>
+                        <td>10月</td>
+                        <td>台中爵士音樂節 (Taichung Jazz Festival)</td>
+                        <td>台中 (Taichung)</td>
+                    </tr>
+                    <tr>
+                        <td>11月</td>
+                        <td>草嶺古道芒花季 (Silver Grass Festival)</td>
+                        <td>新北/宜蘭 (New Taipei/Yilan)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="season-summary-img">
+            [ Autumn Summary Image Placeholder ]
+        </div>
+    </section>
+
+    <section class="season-section" id="winter">
+        <h2 class="season-title">WINTER <span>(Dec. - Feb.)</span></h2>
+        
+        <div class="table-responsive">
+            <table class="festival-table">
+                <thead>
+                    <tr>
+                        <th>日期 (Date)</th>
+                        <th>活動名稱 (Event Name)</th>
+                        <th>地點 (Location)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>12月</td>
+                        <td>新北歡樂耶誕城 (Christmasland)</td>
+                        <td>新北 (New Taipei)</td>
+                    </tr>
+                    <tr>
+                        <td>12月31日</td>
+                        <td>跨年晚會 & 101煙火 (New Year's Eve)</td>
+                        <td>台北 (Taipei)</td>
+                    </tr>
+                    <tr>
+                        <td>2月 (農曆1月15日)</td>
+                        <td>台灣燈會 (Taiwan Lantern Festival)</td>
+                        <td>輪流舉辦 (Rotating Cities)</td>
+                    </tr>
+                    <tr>
+                        <td>2月</td>
+                        <td>平溪天燈節 (Pingxi Sky Lantern Festival)</td>
+                        <td>新北 (New Taipei)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="season-summary-img">
+            [ Winter Summary Image Placeholder ]
+        </div>
+    </section>
+
+    <footer id="footer">
+        <h3 class="footer-title">Contact Us</h3>
+        <div class="contact-circles">
+            <a href="#" class="contact-btn line"><img src="image/line_icon.PNG" alt="Line"></a>
+            <a href="#" class="contact-btn fb"><img src="image/fb_icon.PNG" alt="FB"></a>
+            <a href="tel:+886912345678" class="contact-btn phone"><img src="image/tel_icon.PNG" alt="Tel"></a>
+            <a href="mailto:info@example.com" class="contact-btn mail"><img src="image/mail_icon.PNG" alt="Mail"></a>
+        </div>
+        <p class="copyright">© 2025 TaiwanMe. All Rights Reserved.</p>
+    </footer>
+
+    <div id="philosophyModal" class="philosophy-modal">
+        <span class="close-poster">&times;</span>
+        <div class="poster-container">
+            <img src="image/philosophy.PNG" alt="TaiwanMe Philosophy" class="poster-img">
+        </div>
+    </div>
+
+    <div id="tippingModal" class="tipping-modal">
+        <span class="close-tipping">&times;</span>
+        <div class="tipping-content">
+            <h2 class="tipping-title">TIPPING METHODS</h2>
+            
+            <div class="tipping-img-container">
+                <img src="image/buymeaboba.PNG" alt="Buy Us a Boba" class="tipping-img">
+            </div>
+
+            <div class="tipping-details">
+                <div class="tipping-section">
+                    <h3 class="tipping-subtitle">Crypto</h3>
+                    <div class="table-container">
+                        <table class="tipping-table">
+                            <thead>
+                                <tr>
+                                    <th>Coin</th>
+                                    <th>Network</th>
+                                    <th>Address</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="coin-col">BTC</td>
+                                    <td>Bitcoin</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">393SydmjKD8fKYSaiFhZYvxPNi4rgSyzGA</span>
+                                        <button class="copy-btn" data-addr="393SydmjKD8fKYSaiFhZYvxPNi4rgSyzGA">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="coin-col">ETH</td>
+                                    <td>ERC20</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="coin-col">BNB</td>
+                                    <td>BSC (BEP20)</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ERC20</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="coin-col">USDT</td>
+                                    <td>BSC (BEP20)</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ERC20</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="coin-col">USDC</td>
+                                    <td>BSC (BEP20)</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ERC20</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="coin-col">BCH</td>
+                                    <td>Bitcoin Cash</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">qprnfkc6x5k2zc5wrfv0x78zv34dvs7nlswhfmzep0</span>
+                                        <button class="copy-btn" data-addr="qprnfkc6x5k2zc5wrfv0x78zv34dvs7nlswhfmzep0">Copy</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tipping-section">
+                    <h3 class="tipping-subtitle">Others</h3>
+                    <p class="empty-msg">Coming Soon...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

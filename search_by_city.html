@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search by City | TaiwanMe</title>
+    <link rel="icon" href="image/logo.PNG" type="image/png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Banner 設定 */
+        .city-banner {
+            width: 90%;           
+            max-width: 900px;     
+            margin: 40px auto 20px; 
+
+            aspect-ratio: 1344 / 768; 
+            
+            border-radius: 25px;
+            border: 8px solid #fff;
+            outline: 2px dashed #dcb5b5; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+
+            background-image: url('image/search_by_city/banner.PNG'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .page-main-title {
+            text-align: center;
+            font-family: 'Lato', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #5d5d5d; 
+            margin: 20px 0 40px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .region-list-container {
+            max-width: 1000px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+
+        .region-block {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid #eee;
+            padding: 40px 0;
+        }
+        .region-block:last-child { border-bottom: none; }
+
+        .region-title {
+            font-family: 'Lato', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #333;
+            min-width: 200px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .region-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin-top: 10px;
+        }
+
+        .city-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            flex: 1;
+        }
+
+        .city-btn {
+            display: inline-block;
+            text-decoration: none;
+            color: #555;
+            border: 1px solid #ccc;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-family: 'Noto Sans TC', sans-serif;
+            font-weight: 500;
+            transition: 0.3s;
+            background: #fff;
+        }
+
+        .city-btn:hover {
+            background-color: var(--accent-color);
+            color: #fff;
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        @media (min-width: 768px) {
+            .region-block {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+            .region-title {
+                margin-bottom: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 15px;">
+                <img src="image/logo.PNG" alt="TaiwanMe Logo">
+                <span class="logo-text">THE REAL TASTE OF TAIWAN</span>
+            </a>
+        </div>
+
+        <div class="header-links">
+            <a href="#" class="h-link" id="tippingBtn">BUY US<br>A BOBA</a>
+            <a href="#" class="h-link" id="philosophyBtn">TAIWANME'S<br>PHILOSOPHY</a>
+            <a href="#" class="h-link">BUSINESS<br>INQUIRY</a>
+        </div>
+
+        <div class="nav-icons">
+            <button id="searchBtn">🔍 Search</button>
+        </div>
+    </header>
+
+    <div id="searchModal" class="search-modal">
+        <div class="close-search">&times;</div>
+        <div class="search-content">
+            <h2>Where to explore?</h2>
+            <input type="text" placeholder="Enter keywords (e.g. Taipei, Food)...">
+            <button class="submit-search">Search</button>
+        </div>
+    </div>
+
+    <nav class="mobile-grid-nav">
+        <a href="index.html#mapSection" class="grid-btn scroll-to-map">HIDDEN GEMS</a>
+        <a href="search_by_city.html" class="grid-btn" style="color: var(--accent-color); font-weight: bold;">SEARCH BY CITY</a>
+        <a href="festivals.html" class="grid-btn">SEASONAL FESTIVALS</a>
+        <a href="transport.html" class="grid-btn">TRANSPORT</a>
+        <a href="culture.html" class="grid-btn">CULTURE &<br>DAILY LIFE</a>
+        <a href="dining.html" class="grid-btn">INCLUSIVE DINING</a>
+        <a href="entertainment.html" class="grid-btn">ENTERTAINMENT</a>
+        <a href="#" class="grid-btn menu-btn">MORE +</a>
+    </nav>
+
+    <nav class="desktop-nav">
+        <ul>
+            <li><a href="index.html#mapSection" class="scroll-to-map">HIDDEN GEMS</a></li>
+            <li><a href="search_by_city.html" style="color: var(--accent-color);">SEARCH BY CITY</a></li>
+            <li><a href="festivals.html">SEASONAL FESTIVALS</a></li>
+            <li><a href="transport.html">TRANSPORT</a></li>
+            <li><a href="culture.html">CULTURE & DAILY LIFE</a></li>
+            <li><a href="dining.html">INCLUSIVE DINING</a></li>
+            <li><a href="entertainment.html">ENTERTAINMENT</a></li>
+            <li class="dropdown-item">
+                <a href="#" class="dropbtn">MORE ▾</a>
+                <div class="dropdown-content">
+                    <a href="#">Page 1</a>
+                    <a href="#">Page 2</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="city-banner"></div>
+
+    <h1 class="page-main-title">Search By Region</h1>
+
+    <section class="region-list-container">
+        
+        <div class="region-block">
+            <div class="region-title">NORTH</div>
+            <div class="city-tags">
+                <a href="#" class="city-btn">台北 (Taipei)</a>
+                <a href="#" class="city-btn">新北 (New Taipei)</a>
+                <a href="#" class="city-btn">基隆 (Keelung)</a>
+                <a href="#" class="city-btn">桃園 (Taoyuan)</a>
+                <a href="#" class="city-btn">新竹 (Hsinchu)</a>
+                <a href="#" class="city-btn">宜蘭 (Yilan)</a>
+            </div>
+        </div>
+
+        <div class="region-block">
+            <div class="region-title">CENTRAL</div>
+            <div class="city-tags">
+                <a href="#" class="city-btn">苗栗 (Miaoli)</a>
+                <a href="#" class="city-btn">台中 (Taichung)</a>
+                <a href="#" class="city-btn">彰化 (Changhua)</a>
+                <a href="#" class="city-btn">南投 (Nantou)</a>
+                <a href="#" class="city-btn">雲林 (Yunlin)</a>
+            </div>
+        </div>
+
+        <div class="region-block">
+            <div class="region-title">SOUTH</div>
+            <div class="city-tags">
+                <a href="#" class="city-btn">嘉義 (Chiayi)</a>
+                <a href="#" class="city-btn">台南 (Tainan)</a>
+                <a href="#" class="city-btn">高雄 (Kaohsiung)</a>
+                <a href="#" class="city-btn">屏東 (Pingtung)</a>
+            </div>
+        </div>
+
+        <div class="region-block">
+            <div class="region-title">EAST</div>
+            <div class="city-tags">
+                <a href="#" class="city-btn">花蓮 (Hualien)</a>
+                <a href="#" class="city-btn">台東 (Taitung)</a>
+            </div>
+        </div>
+
+        <div class="region-block">
+            <div class="region-title">OUTLYING<br>ISLANDS</div>
+            <div class="city-tags">
+                <a href="#" class="city-btn">澎湖 (Penghu)</a>
+                <a href="#" class="city-btn">金門 (Kinmen)</a>
+                <a href="#" class="city-btn">馬祖 (Matsu)</a>
+                <a href="#" class="city-btn">綠島 (Green Island)</a>
+                <a href="#" class="city-btn">蘭嶼 (Lanyu)</a>
+                <a href="#" class="city-btn">小琉球 (Liuqiu)</a>
+            </div>
+        </div>
+
+    </section>
+
+    <footer id="footer">
+        <h3 class="footer-title">Contact Us</h3>
+        <div class="contact-circles">
+            <a href="https://line.me/ti/p/example" target="_blank" class="contact-btn line">
+                <img src="image/line_icon.PNG" alt="Line">
+            </a>
+            <a href="https://facebook.com/example" target="_blank" class="contact-btn fb">
+                <img src="image/fb_icon.PNG" alt="FB">
+            </a>
+            <a href="tel:+886912345678" class="contact-btn phone">
+                <img src="image/tel_icon.PNG" alt="Tel">
+            </a>
+            <a href="mailto:info@example.com" class="contact-btn mail">
+                <img src="image/mail_icon.PNG" alt="Mail">
+            </a>
+        </div>
+        <p class="copyright">© 2025 TaiwanMe. All Rights Reserved.</p>
+    </footer>
+
+    <div id="philosophyModal" class="philosophy-modal">
+        <div class="poster-container">
+            <span class="close-poster">&times;</span>
+            <img src="image/philosophy.PNG" alt="TaiwanMe Philosophy" class="poster-img">
+        </div>
+    </div>
+
+    <div id="tippingModal" class="tipping-modal">
+        <div class="tipping-content">
+            <div class="close-tipping">&times;</div>
+            <h2 class="tipping-title">TIPPING METHODS</h2>
+            
+            <div class="tipping-img-container">
+                <img src="image/buymeaboba.PNG" alt="Buy Us a Boba" class="tipping-img">
+            </div>
+
+            <div class="tipping-details">
+                <div class="tipping-section">
+                    <h3 class="tipping-subtitle">Crypto</h3>
+                    <div class="table-container">
+                        <table class="tipping-table">
+                            <thead>
+                                <tr>
+                                    <th>Coin</th>
+                                    <th>Network</th>
+                                    <th>Address</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="coin-col">BTC</td>
+                                    <td>Bitcoin</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">393SydmjKD8fKYSaiFhZYvxPNi4rgSyzGA</span>
+                                        <button class="copy-btn" data-addr="393SydmjKD8fKYSaiFhZYvxPNi4rgSyzGA">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="coin-col">ETH</td>
+                                    <td>ERC20</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="coin-col">BNB</td>
+                                    <td>BSC (BEP20)</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ERC20</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="coin-col">USDT</td>
+                                    <td>BSC (BEP20)</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ERC20</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="coin-col">USDC</td>
+                                    <td>BSC (BEP20)</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ERC20</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="coin-col">BCH</td>
+                                    <td>Bitcoin Cash</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">qprnfkc6x5k2zc5wrfv0x78zv34dvs7nlswhfmzep0</span>
+                                        <button class="copy-btn" data-addr="qprnfkc6x5k2zc5wrfv0x78zv34dvs7nlswhfmzep0">Copy</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tipping-section">
+                    <h3 class="tipping-subtitle">Others</h3>
+                    <p class="empty-msg">Coming Soon...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="backToTopBtn" class="back-to-top">
+        <img src="image/top.PNG" alt="Back to Top">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

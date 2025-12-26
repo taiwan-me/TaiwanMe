@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaiwanMe | The Real Taste of Taiwan for travel/trip/tour</title>
+    <link rel="icon" href="image/logo.PNG" type="image/png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header id="header">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 15px;">
+                <img src="image/logo.PNG" alt="TaiwanMe Logo">
+                <span class="logo-text">THE REAL TASTE OF TAIWAN</span>
+            </a>
+        </div>
+
+        <div class="header-links">
+            <a href="#" class="h-link" id="tippingBtn">BUY US<br>A BOBA</a>
+            <a href="#" class="h-link" id="philosophyBtn">TAIWANME'S<br>PHILOSOPHY</a>
+            <a href="#" class="h-link">BUSINESS<br>INQUIRY</a>
+        </div>
+
+        <div class="nav-icons">
+            <button id="searchBtn">🔍 Search</button>
+        </div>
+    </header>
+
+    <div id="searchModal" class="search-modal">
+        <div class="close-search">&times;</div>
+        <div class="search-content">
+            <h2>Where to explore?</h2>
+            <input type="text" placeholder="Enter keywords (e.g. Taipei, Food)...">
+            <button class="submit-search">Search</button>
+        </div>
+    </div>
+
+    <section class="hero-slider">
+        <div class="slider-wrapper">
+            <div class="slide active" style="background-image: url('image/banner1.JPG');"></div>
+            <div class="slide" style="background-image: url('image/banner2.JPG');"></div>
+            <div class="slide" style="background-image: url('image/banner3.JPG');"></div>
+        </div>
+        <button class="prev-btn">❮</button>
+        <button class="next-btn">❯</button>
+    </section>
+
+    <nav class="mobile-grid-nav">
+        <a href="#mapSection" class="grid-btn scroll-to-map">HIDDEN GEMS</a>
+        <a href="search_by_city.html" class="grid-btn">SEARCH BY CITY</a>
+        <a href="festivals.html" class="grid-btn">SEASONAL FESTIVALS</a>
+        <a href="transport.html" class="grid-btn">TRANSPORT</a>
+        
+        <a href="culture.html" class="grid-btn">CULTURE &<br>DAILY LIFE</a>
+        <a href="dining.html" class="grid-btn">INCLUSIVE DINING</a>
+        <a href="entertainment.html" class="grid-btn">ENTERTAINMENT</a>
+        
+        <a href="#" class="grid-btn menu-btn">MORE +</a>
+    </nav>
+
+    <nav class="desktop-nav">
+        <ul>
+            <li><a href="#mapSection" class="scroll-to-map">HIDDEN GEMS</a></li>
+            <li><a href="search_by_city.html">SEARCH BY CITY</a></li>
+            <li><a href="festivals.html">SEASONAL FESTIVALS</a></li>
+            <li><a href="transport.html">TRANSPORT</a></li>
+            
+            <li><a href="culture.html">CULTURE & DAILY LIFE</a></li>
+            <li><a href="dining.html">INCLUSIVE DINING</a></li>
+            <li><a href="entertainment.html">ENTERTAINMENT</a></li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropbtn">MORE ▾</a>
+                <div class="dropdown-content">
+                    <a href="#">Page 1</a>
+                    <a href="#">Page 2</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="map-section" id="mapSection">
+        <h2 class="section-title">
+            HIDDEN GEMS<br>
+            <span style="font-size: 0.6em; letter-spacing: 1px; color: #777;">— CATEGORIZED BY REGIONS —</span>
+        </h2>
+        
+        <div class="desktop-map-container">
+            <div class="taiwan-map">
+                <img src="image/map.PNG" alt="Taiwan Map" class="main-map-img">
+                
+                <a href="#" class="region-circle pos-north">North</a>
+                <a href="#" class="region-circle pos-central">Central</a>
+                <a href="#" class="region-circle pos-south">South</a>
+                <a href="#" class="region-circle pos-east">East</a>
+
+                <a href="#" class="region-square pos-islands">Outlying<br>Islands</a>
+            </div>
+        </div>
+
+        <div class="mobile-region-list">
+            <div class="region-card" style="background-image: url('image/north-thumb.jpg');">North Region</div>
+            <div class="region-card" style="background-image: url('image/central-thumb.jpg');">Central Region</div>
+            <div class="region-card" style="background-image: url('image/south-thumb.jpg');">South Region</div>
+            <div class="region-card" style="background-image: url('image/east-thumb.jpg');">East Region</div>
+        </div>
+    </section>
+
+    <section class="articles-section">
+        <h2 class="section-title">LATEST STORIES</h2>
+        <div class="article-grid" id="articleGrid">
+            
+            <div class="article-card">
+                <div class="card-img"><img src="https://placehold.co/400x300/eee/333?text=Taipei+Market" alt="活動"></div>
+                <div class="card-info">
+                    <span class="date">2025.12.25</span>
+                    <h3>Taipei Christmas Market Guide</h3>
+                    <p class="tag">#Festival #Taipei</p>
+                </div>
+            </div>
+
+            <div class="article-card">
+                <div class="card-img"><img src="https://placehold.co/400x300/eee/333?text=Alishan" alt="活動"></div>
+                <div class="card-info">
+                    <span class="date">2026.01.01</span>
+                    <h3>Alishan Sunrise New Year Trip</h3>
+                    <p class="tag">#Nature #Chiayi</p>
+                </div>
+            </div>
+
+            <div class="article-card">
+                <div class="card-img"><img src="https://placehold.co/400x300/eee/333?text=Tainan+Lantern" alt="活動"></div>
+                <div class="card-info">
+                    <span class="date">2026.02.10</span>
+                    <h3>Tainan Lantern Festival Preview</h3>
+                    <p class="tag">#Culture #Tainan</p>
+                </div>
+            </div>
+
+            <div class="article-card hidden-card">
+                <div class="card-img"><img src="https://placehold.co/400x300/eee/333?text=Hualien+Flower" alt="活動"></div>
+                <div class="card-info">
+                    <span class="date">2026.03.20</span>
+                    <h3>Hualien Rift Valley Flower Sea</h3>
+                    <p class="tag">#Flowers #Hualien</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="load-more-container">
+            <button id="loadMoreBtn">View More ▾</button>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <h3 class="footer-title">Contact Us</h3>
+        <div class="contact-circles">
+            <a href="https://line.me/ti/p/example" target="_blank" class="contact-btn line">
+                <img src="image/line_icon.PNG" alt="Line">
+            </a>
+            <a href="https://facebook.com/example" target="_blank" class="contact-btn fb">
+                <img src="image/fb_icon.PNG" alt="FB">
+            </a>
+            <a href="tel:+886912345678" class="contact-btn phone">
+                <img src="image/tel_icon.PNG" alt="Tel">
+            </a>
+            <a href="mailto:info@example.com" class="contact-btn mail">
+                <img src="image/mail_icon.PNG" alt="Mail">
+            </a>
+        </div>
+        <p class="copyright">© 2025 TaiwanMe. All Rights Reserved.</p>
+    </footer>
+
+    <div id="philosophyModal" class="philosophy-modal">
+        <div class="poster-container">
+            <span class="close-poster">&times;</span>
+            <img src="image/philosophy.PNG" alt="TaiwanMe Philosophy" class="poster-img">
+        </div>
+    </div>
+
+    <div id="tippingModal" class="tipping-modal">
+        <div class="tipping-content">
+            <div class="close-tipping">&times;</div>
+            <h2 class="tipping-title">TIPPING METHODS</h2>
+            
+            <div class="tipping-img-container">
+                <img src="image/buymeaboba.PNG" alt="Buy Us a Boba" class="tipping-img">
+            </div>
+
+            <div class="tipping-details">
+                <div class="tipping-section">
+                    <h3 class="tipping-subtitle">Crypto</h3>
+                    <div class="table-container">
+                        <table class="tipping-table">
+                            <thead>
+                                <tr>
+                                    <th>Coin</th>
+                                    <th>Network</th>
+                                    <th>Address</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="coin-col">BTC</td>
+                                    <td>Bitcoin</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">393SydmjKD8fKYSaiFhZYvxPNi4rgSyzGA</span>
+                                        <button class="copy-btn" data-addr="393SydmjKD8fKYSaiFhZYvxPNi4rgSyzGA">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="coin-col">ETH</td>
+                                    <td>ERC20</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="coin-col">BNB</td>
+                                    <td>BSC (BEP20)</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ERC20</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="coin-col">USDT</td>
+                                    <td>BSC (BEP20)</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ERC20</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="coin-col">USDC</td>
+                                    <td>BSC (BEP20)</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ERC20</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="coin-col">BCH</td>
+                                    <td>Bitcoin Cash</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">qprnfkc6x5k2zc5wrfv0x78zv34dvs7nlswhfmzep0</span>
+                                        <button class="copy-btn" data-addr="qprnfkc6x5k2zc5wrfv0x78zv34dvs7nlswhfmzep0">Copy</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tipping-section">
+                    <h3 class="tipping-subtitle">Others</h3>
+                    <p class="empty-msg">Coming Soon...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="backToTopBtn" class="back-to-top">
+        <img src="image/top.PNG" alt="Back to Top">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culture & Daily Life | TaiwanMe</title>
+    <link rel="icon" href="image/logo.PNG" type="image/png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Culture 頁面專用樣式 */
+        .culture-banner {
+            width: 100%;
+            aspect-ratio: 1344 / 768; 
+            background-image: url('image/culture/banner.PNG'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-bottom: 60px; /* 恢復原本的間距 */
+        }
+
+        .page-main-title {
+            text-align: center;
+            font-family: 'Lato', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #5d5d5d;
+            margin-bottom: 80px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- 內容區塊排版 (仿 JNTO 風格) --- */
+        .content-container {
+            max-width: 1100px;
+            margin: 0 auto 100px;
+            padding: 0 20px;
+        }
+
+        .culture-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 60px;
+            margin-bottom: 100px;
+        }
+
+        .culture-text { flex: 1; }
+
+        .culture-text h2 {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 25px;
+            border-bottom: 3px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .culture-text p {
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 1.05rem;
+            color: #666;
+            line-height: 1.8;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        .culture-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .culture-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 10px 10px 0px rgba(232, 162, 162, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .culture-row {
+                flex-direction: column;
+                gap: 30px;
+                margin-bottom: 60px;
+            }
+            .culture-text h2 { font-size: 1.6rem; }
+            .culture-image img { box-shadow: 5px 5px 0px rgba(232, 162, 162, 0.3); }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 15px;">
+                <img src="image/logo.PNG" alt="TaiwanMe Logo">
+                <span class="logo-text">THE REAL TASTE OF TAIWAN</span>
+            </a>
+        </div>
+        <div class="header-links">
+            <a href="#" class="h-link" id="tippingBtn">BUY US<br>A BOBA</a>
+            <a href="#" class="h-link" id="philosophyBtn">TAIWANME'S<br>PHILOSOPHY</a>
+            <a href="#" class="h-link">BUSINESS<br>INQUIRY</a>
+        </div>
+        <div class="nav-icons">
+            <button id="searchBtn">🔍 Search</button>
+        </div>
+    </header>
+
+    <div id="searchModal" class="search-modal">
+        <span class="close-search">&times;</span>
+        <div class="search-content">
+            <h2>Where to explore?</h2>
+            <input type="text" placeholder="Enter keywords...">
+            <button class="submit-search">Search</button>
+        </div>
+    </div>
+
+    <nav class="mobile-grid-nav">
+        <a href="index.html#mapSection" class="grid-btn scroll-to-map">HIDDEN GEMS</a>
+        <a href="search_by_city.html" class="grid-btn">SEARCH BY CITY</a>
+        <a href="festivals.html" class="grid-btn">SEASONAL FESTIVALS</a>
+        <a href="transport.html" class="grid-btn">TRANSPORT</a>
+        <a href="culture.html" class="grid-btn" style="color: var(--accent-color); font-weight: bold;">CULTURE &<br>DAILY LIFE</a>
+        <a href="dining.html" class="grid-btn">INCLUSIVE DINING</a>
+        <a href="entertainment.html" class="grid-btn">ENTERTAINMENT</a>
+        <a href="#" class="grid-btn menu-btn">MORE +</a>
+    </nav>
+
+    <nav class="desktop-nav">
+        <ul>
+            <li><a href="index.html#mapSection" class="scroll-to-map">HIDDEN GEMS</a></li>
+            <li><a href="search_by_city.html">SEARCH BY CITY</a></li>
+            <li><a href="festivals.html">SEASONAL FESTIVALS</a></li>
+            <li><a href="transport.html">TRANSPORT</a></li>
+            <li><a href="culture.html" style="color: var(--accent-color);">CULTURE & DAILY LIFE</a></li>
+            <li><a href="dining.html">INCLUSIVE DINING</a></li>
+            <li><a href="entertainment.html">ENTERTAINMENT</a></li>
+            <li class="dropdown-item"><a href="#" class="dropbtn">MORE ▾</a><div class="dropdown-content"><a href="#">Page 1</a><a href="#">Page 2</a></div></li>
+        </ul>
+    </nav>
+
+    <div class="culture-banner"></div>
+
+    <h1 class="page-main-title">Culture & Daily Life</h1>
+
+    <div class="content-container">
+        
+        <div class="culture-row">
+            <div class="culture-text">
+                <h2>台灣歷史簡介</h2>
+                <p>Taiwan's history is a tapestry of diverse influences. Originally inhabited by Austronesian indigenous peoples, the island later saw waves of immigration from mainland China, periods of European trade (Dutch and Spanish), and fifty years of Japanese colonial rule (1895-1945).</p>
+                <p>Today, Taiwan is a vibrant democracy. This multilayered past has created a unique cultural identity where ancient traditions blend seamlessly with modern innovation, reflected in everything from architecture to cuisine.</p>
+            </div>
+            <div class="culture-image">
+                <img src="https://placehold.co/600x400/eee/333?text=History+Image" alt="Taiwan History">
+            </div>
+        </div>
+
+        <div class="culture-row" style="flex-direction: row-reverse;">
+            <div class="culture-text">
+                <h2>在台語言與生活日語介紹</h2>
+                <p>The official language is Mandarin Chinese (Huayu), but distinct local languages like Taiwanese (Hokkien) and Hakka are widely spoken. Due to the colonial history, many older generations also speak fluent Japanese.</p>
+                <p>Interestingly, many Taiwanese words related to daily life are borrowed from Japanese, such as "Obasan" (auntie) or "Bento" (boxed meal). English is becoming increasingly common in major cities and transportation systems.</p>
+            </div>
+            <div class="culture-image">
+                <img src="https://placehold.co/600x400/eee/333?text=Language+Image" alt="Language in Taiwan">
+            </div>
+        </div>
+
+    </div>
+
+    <footer id="footer">
+        <h3 class="footer-title">Contact Us</h3>
+        <div class="contact-circles">
+            <a href="#" class="contact-btn line"><img src="image/line_icon.PNG" alt="Line"></a>
+            <a href="#" class="contact-btn fb"><img src="image/fb_icon.PNG" alt="FB"></a>
+            <a href="tel:+886912345678" class="contact-btn phone"><img src="image/tel_icon.PNG" alt="Tel"></a>
+            <a href="mailto:info@example.com" class="contact-btn mail"><img src="image/mail_icon.PNG" alt="Mail"></a>
+        </div>
+        <p class="copyright">© 2025 TaiwanMe. All Rights Reserved.</p>
+    </footer>
+
+    <div id="philosophyModal" class="philosophy-modal">
+        <span class="close-poster">&times;</span>
+        <div class="poster-container">
+            <img src="image/philosophy.PNG" alt="TaiwanMe Philosophy" class="poster-img">
+        </div>
+    </div>
+
+    <div id="tippingModal" class="tipping-modal">
+        <div class="tipping-content">
+            <div class="close-tipping">&times;</div>
+            <h2 class="tipping-title">TIPPING METHODS</h2>
+            
+            <div class="tipping-img-container">
+                <img src="image/buymeaboba.PNG" alt="Buy Us a Boba" class="tipping-img">
+            </div>
+
+            <div class="tipping-details">
+                <div class="tipping-section">
+                    <h3 class="tipping-subtitle">Crypto</h3>
+                    <div class="table-container">
+                        <table class="tipping-table">
+                            <thead>
+                                <tr>
+                                    <th>Coin</th>
+                                    <th>Network</th>
+                                    <th>Address</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="coin-col">BTC</td>
+                                    <td>Bitcoin</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">393SydmjKD8fKYSaiFhZYvxPNi4rgSyzGA</span>
+                                        <button class="copy-btn" data-addr="393SydmjKD8fKYSaiFhZYvxPNi4rgSyzGA">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="coin-col">ETH</td>
+                                    <td>ERC20</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="coin-col">BNB</td>
+                                    <td>BSC (BEP20)</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ERC20</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="coin-col">USDT</td>
+                                    <td>BSC (BEP20)</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ERC20</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="coin-col">USDC</td>
+                                    <td>BSC (BEP20)</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ERC20</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="coin-col">BCH</td>
+                                    <td>Bitcoin Cash</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">qprnfkc6x5k2zc5wrfv0x78zv34dvs7nlswhfmzep0</span>
+                                        <button class="copy-btn" data-addr="qprnfkc6x5k2zc5wrfv0x78zv34dvs7nlswhfmzep0">Copy</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tipping-section">
+                    <h3 class="tipping-subtitle">Others</h3>
+                    <p class="empty-msg">Coming Soon...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="backToTopBtn" class="back-to-top">
+        <img src="image/top.PNG" alt="Back to Top">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

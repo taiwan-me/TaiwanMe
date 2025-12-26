@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inclusive Dining | TaiwanMe</title>
+    <link rel="icon" href="image/logo.PNG" type="image/png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header id="header">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 15px;">
+                <img src="image/logo.PNG" alt="TaiwanMe Logo">
+                <span class="logo-text">THE REAL TASTE OF TAIWAN</span>
+            </a>
+        </div>
+        <div class="header-links">
+            <a href="#" class="h-link" id="tippingBtn">BUY US<br>A BOBA</a>
+            <a href="#" class="h-link" id="philosophyBtn">TAIWANME'S<br>PHILOSOPHY</a>
+            <a href="#" class="h-link">BUSINESS<br>INQUIRY</a>
+        </div>
+        <div class="nav-icons">
+            <button id="searchBtn">🔍 Search</button>
+        </div>
+    </header>
+
+    <div id="searchModal" class="search-modal">
+        <div class="close-search">&times;</div>
+        <div class="search-content">
+            <h2>Where to explore?</h2>
+            <input type="text" placeholder="Enter keywords (e.g. Halal, Vegan)...">
+            <button class="submit-search">Search</button>
+        </div>
+    </div>
+
+    <nav class="mobile-grid-nav">
+        <a href="index.html#mapSection" class="grid-btn scroll-to-map">HIDDEN GEMS</a>
+        <a href="search_by_city.html" class="grid-btn">SEARCH BY CITY</a>
+        <a href="festivals.html" class="grid-btn">SEASONAL FESTIVALS</a>
+        <a href="transport.html" class="grid-btn">TRANSPORT</a>
+        <a href="culture.html" class="grid-btn">CULTURE &<br>DAILY LIFE</a>
+        <a href="dining.html" class="grid-btn" style="color: var(--accent-color); font-weight: bold;">INCLUSIVE DINING</a>
+        <a href="entertainment.html" class="grid-btn">ENTERTAINMENT</a>
+        <a href="#" class="grid-btn menu-btn">MORE +</a>
+    </nav>
+
+    <nav class="desktop-nav">
+        <ul>
+            <li><a href="index.html#mapSection" class="scroll-to-map">HIDDEN GEMS</a></li>
+            <li><a href="search_by_city.html">SEARCH BY CITY</a></li>
+            <li><a href="festivals.html">SEASONAL FESTIVALS</a></li>
+            <li><a href="transport.html">TRANSPORT</a></li>
+            <li><a href="culture.html">CULTURE & DAILY LIFE</a></li>
+            <li><a href="dining.html" style="color: var(--accent-color);">INCLUSIVE DINING</a></li>
+            <li><a href="entertainment.html">ENTERTAINMENT</a></li>
+            <li class="dropdown-item"><a href="#" class="dropbtn">MORE ▾</a><div class="dropdown-content"><a href="#">Page 1</a><a href="#">Page 2</a></div></li>
+        </ul>
+    </nav>
+
+    <div class="page-banner" style="background-image: url('image/dining/banner.PNG');">
+        <div class="banner-overlay">
+            <h1>Inclusive Dining</h1>
+            <p>Taste the diversity of Taiwan without boundaries.</p>
+        </div>
+    </div>
+
+    <div class="disclaimer-container">
+        <div class="disclaimer-box">
+            <span class="disclaimer-icon">⚠️</span>
+            <div class="disclaimer-text">
+                <strong>編輯聲明：</strong> 本頁面內容最後更新於 <span>2025年12月26日</span>。
+                <br>店家營業時間與菜單可能隨時變動，建議造訪前先瀏覽官方網站或致電確認。
+            </div>
+        </div>
+    </div>
+
+    <section class="filter-section">
+        <div class="search-bar-container">
+            <input type="text" id="diningSearchInput" placeholder="請輸入區域 (如: 信義區) 或路名...">
+            <button id="diningSearchBtn">Search</button>
+        </div>
+
+        <div class="tags-container">
+            <span class="tags-label">飲食偏好 (可多選):</span>
+            <label class="filter-tag">
+                <input type="checkbox" value="halal" class="diet-checkbox">
+                <span class="tag-visual">清真友善 (Halal)</span>
+            </label>
+            <label class="filter-tag">
+                <input type="checkbox" value="vegetarian" class="diet-checkbox">
+                <span class="tag-visual">素食友善 (Vegetarian)</span>
+            </label>
+            <label class="filter-tag">
+                <input type="checkbox" value="no-beef" class="diet-checkbox">
+                <span class="tag-visual">不吃牛 (No Beef)</span>
+            </label>
+        </div>
+    </section>
+
+    <section class="restaurant-section">
+        <div class="restaurant-grid" id="restaurantGrid">
+            
+            <div class="res-card" data-area="信義區松壽路" data-diet="halal no-beef">
+                <div class="res-img">
+                    <img src="image/dining/res1.jpg" alt="Restaurant Image">
+                </div>
+                <div class="res-info">
+                    <div class="res-tags">
+                        <span class="tag-pill halal">Halal</span>
+                        <span class="tag-pill no-beef">No Beef</span>
+                    </div>
+                    <h3>Saffron 46</h3>
+                    <p class="res-location">信義區 · 松壽路</p>
+                    <a href="#" class="res-link">View Details</a>
+                </div>
+            </div>
+
+            <div class="res-card" data-area="大安區忠孝東路" data-diet="vegetarian">
+                <div class="res-img">
+                    <img src="image/dining/res2.jpg" alt="Restaurant Image">
+                </div>
+                <div class="res-info">
+                    <div class="res-tags">
+                        <span class="tag-pill vegetarian">Vegetarian</span>
+                    </div>
+                    <h3>Miacucina</h3>
+                    <p class="res-location">大安區 · 忠孝東路</p>
+                    <a href="#" class="res-link">View Details</a>
+                </div>
+            </div>
+
+            <div class="res-card" data-area="中山區中山北路" data-diet="">
+                <div class="res-img">
+                    <img src="image/dining/res3.jpg" alt="Restaurant Image">
+                </div>
+                <div class="res-info">
+                    <div class="res-tags">
+                        </div>
+                    <h3>Taiwan Bistro</h3>
+                    <p class="res-location">中山區 · 中山北路</p>
+                    <a href="#" class="res-link">View Details</a>
+                </div>
+            </div>
+
+        </div>
+        
+        <div id="noResults" style="display:none; text-align:center; padding:40px; color:#999;">
+            沒有找到符合條件的餐廳，請嘗試調整搜尋區域或標籤。
+        </div>
+    </section>
+
+    <footer id="footer">
+        <h3 class="footer-title">Contact Us</h3>
+        <div class="contact-circles">
+            <a href="#" class="contact-btn line"><img src="image/line_icon.PNG" alt="Line"></a>
+            <a href="#" class="contact-btn fb"><img src="image/fb_icon.PNG" alt="FB"></a>
+            <a href="tel:+886912345678" class="contact-btn phone"><img src="image/tel_icon.PNG" alt="Tel"></a>
+            <a href="mailto:info@example.com" class="contact-btn mail"><img src="image/mail_icon.PNG" alt="Mail"></a>
+        </div>
+        <p class="copyright">© 2025 TaiwanMe. All Rights Reserved.</p>
+    </footer>
+
+    <div id="philosophyModal" class="philosophy-modal">
+        <div class="poster-container">
+            <span class="close-poster">&times;</span>
+            <img src="image/philosophy.PNG" alt="TaiwanMe Philosophy" class="poster-img">
+        </div>
+    </div>
+
+    <div id="tippingModal" class="tipping-modal">
+        <div class="tipping-content">
+            <div class="close-tipping">&times;</div>
+            <h2 class="tipping-title">TIPPING METHODS</h2>
+            
+            <div class="tipping-img-container">
+                <img src="image/buymeaboba.PNG" alt="Buy Us a Boba" class="tipping-img">
+            </div>
+
+            <div class="tipping-details">
+                <div class="tipping-section">
+                    <h3 class="tipping-subtitle">Crypto</h3>
+                    <div class="table-container">
+                        <table class="tipping-table">
+                            <thead>
+                                <tr>
+                                    <th>Coin</th>
+                                    <th>Network</th>
+                                    <th>Address</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="coin-col">BTC</td>
+                                    <td>Bitcoin</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">393SydmjKD8fKYSaiFhZYvxPNi4rgSyzGA</span>
+                                        <button class="copy-btn" data-addr="393SydmjKD8fKYSaiFhZYvxPNi4rgSyzGA">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="coin-col">ETH</td>
+                                    <td>ERC20</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="coin-col">BNB</td>
+                                    <td>BSC (BEP20)</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ERC20</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="coin-col">USDT</td>
+                                    <td>BSC (BEP20)</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ERC20</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="coin-col">USDC</td>
+                                    <td>BSC (BEP20)</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ERC20</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C</span>
+                                        <button class="copy-btn" data-addr="0x7563Fa328f07373cb8F458EefDcc5e9FFF657D3C">Copy</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="coin-col">BCH</td>
+                                    <td>Bitcoin Cash</td>
+                                    <td class="addr-col">
+                                        <span class="addr-text">qprnfkc6x5k2zc5wrfv0x78zv34dvs7nlswhfmzep0</span>
+                                        <button class="copy-btn" data-addr="qprnfkc6x5k2zc5wrfv0x78zv34dvs7nlswhfmzep0">Copy</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tipping-section">
+                    <h3 class="tipping-subtitle">Others</h3>
+                    <p class="empty-msg">Coming Soon...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="backToTopBtn" class="back-to-top">
+        <img src="image/top.PNG" alt="Back to Top">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
